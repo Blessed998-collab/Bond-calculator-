@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empowering Financial Future</title>
+    <title>Zambian Bond Calculator</title>
     <style>
-        /* Reset styles */
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fc;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #f4f7fc, #cfe2f3);
             color: #333;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header */
         header {
             text-align: center;
-            background-color: #005B9F;
-            color: #fff;
+            background: linear-gradient(90deg, #005B9F, #004080);
+            color: white;
             padding: 20px 0;
         }
 
@@ -36,16 +37,15 @@
             font-size: 1.2em;
         }
 
-        /* Navigation */
         nav {
             background-color: #333;
+            padding: 10px 0;
         }
 
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
-            padding: 10px 0;
         }
 
         nav ul li {
@@ -59,61 +59,71 @@
         }
 
         nav ul li a:hover {
-            color: #005B9F;
+            color: #ffd700;
         }
 
-        /* Main content */
         main {
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section {
-            margin-bottom: 20px;
+            flex: 1;
         }
 
         h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
+            text-align: center;
         }
 
         form {
-            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         form label {
             display: block;
-            margin: 10px 0 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
         form input, form select, form button {
             width: 100%;
             padding: 10px;
-            margin: 8px 0;
+            margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
 
         form button {
-            background-color: #005B9F;
-            color: #fff;
+            background: #005B9F;
+            color: white;
+            font-size: 1.1em;
             border: none;
+            cursor: pointer;
         }
 
         form button:hover {
-            background-color: #004C87;
+            background: #004080;
         }
 
-        /* Footer */
-        footer {
+        #result {
+            max-width: 600px;
+            margin: 20px auto;
             text-align: center;
-            padding: 20px 0;
+            background-color: #e6f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
             background-color: #333;
             color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
         }
 
         footer a {
@@ -128,22 +138,22 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Empowering Financial Future</h1>
-        <p>Your guide to interactive financial tools and expert resources.</p>
+        <h1>Zambian Bond Calculator</h1>
+        <p>Calculate Your Bond Returns with Ease</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#tools">Tools</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <main>
-        <section id="tools">
-            <h2>Zambian Bond Calculator</h2>
+        <section id="calculator">
+            <h2>Bond Calculator</h2>
             <form id="bondForm">
                 <label for="principal">Principal Amount (ZMW):</label>
                 <input type="number" id="principal" required>
@@ -175,7 +185,7 @@
 
     <footer>
         <p>Contact us: <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
-        <p>&copy; 2025 Empowering Financial Future | All Rights Reserved</p>
+        <p>&copy; 2025 Zambian Bond Calculator | All Rights Reserved</p>
     </footer>
 
     <script>
@@ -192,14 +202,6 @@
 
                 if (isNaN(principal) || principal <= 0) {
                     alert('Please enter a valid principal amount');
-                    return;
-                }
-                if (isNaN(term) || term <= 0) {
-                    alert('Please select a valid bond term');
-                    return;
-                }
-                if (isNaN(rate) || rate <= 0) {
-                    alert('Please select a valid coupon rate');
                     return;
                 }
 
