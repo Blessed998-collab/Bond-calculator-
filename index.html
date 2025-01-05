@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bond Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+    }
+    .result {
+      background: #f4f4f4;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bond Calculator</h1>
+    <label for="faceValue">Face Value ($):</label>
+    <input type="number" id="faceValue" placeholder="e.g., 1000" />
+
+    <label for="couponRate">Coupon Rate (%):</label>
+    <input type="number" id="couponRate" step="0.01" placeholder="e.g., 5" />
+
+    <label for="yearsToMaturity">Years to Maturity:</label>
+    <input type="number" id="yearsToMaturity" placeholder="e.g., 10" />
+
+    <label for="marketRate">Market Interest Rate (%):</label>
+    <input type="number" id="marketRate" step="0.01" placeholder="e.g., 6" />
+
+    <button onclick="calculateBondPrice()">Calculate</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
