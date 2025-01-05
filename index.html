@@ -7,8 +7,9 @@
     <meta name="keywords" content="Zambian bonds, bond calculator, finance, investment, government bonds, ZMW, bond returns">
     <meta name="author" content="Zambian Bond Calculator">
     <title>Zambian Bond Calculator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -16,8 +17,8 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #f4f7fc, #cfe2f3);
             color: #333;
             line-height: 1.6;
             min-height: 100vh;
@@ -27,26 +28,22 @@
 
         header {
             text-align: center;
-            background-color: #2C3E50;
+            background: linear-gradient(90deg, #005B9F, #004080);
             color: white;
-            padding: 40px 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
         }
 
         header h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
         }
 
         header p {
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
 
         nav {
-            background-color: #34495E;
-            padding: 15px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #333;
+            padding: 10px 0;
         }
 
         nav ul {
@@ -56,150 +53,98 @@
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
+            font-size: 1.1em;
         }
 
         nav ul li a:hover {
-            color: #FFD700;
+            color: #ffd700;
         }
 
         main {
-            padding: 40px 20px;
+            padding: 20px;
             flex: 1;
         }
 
-        .section-title {
-            font-size: 2.5em;
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
             text-align: center;
-            margin-bottom: 40px;
-            font-family: 'Merriweather', serif;
-            font-weight: bold;
-        }
-
-        .section-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
         }
 
         form {
-            max-width: 700px;
+            max-width: 600px;
             margin: 20px auto;
             background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         form label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: bold;
-            font-size: 1.1em;
         }
 
-        form input,
-        form select,
-        form button {
+        form input, form select, form button {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border-radius: 6px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
             border: 1px solid #ccc;
-            font-size: 1.1em;
         }
 
         form button {
-            background-color: #2C3E50;
+            background: #005B9F;
             color: white;
-            cursor: pointer;
+            font-size: 1.1em;
             border: none;
-            transition: background-color 0.3s ease;
+            cursor: pointer;
         }
 
         form button:hover {
-            background-color: #34495E;
+            background: #004080;
         }
 
         #result {
-            max-width: 700px;
-            margin: 30px auto;
+            max-width: 600px;
+            margin: 20px auto;
             text-align: center;
             background-color: #e6f3ff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         footer {
-            background-color: #2C3E50;
+            background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 10px;
+            margin-top: 20px;
         }
 
         footer a {
-            color: #FFD700;
+            color: #ffd700;
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
         }
-
-        .email-capture {
-            background-color: #f9f9f9;
-            padding: 30px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .email-capture input {
-            width: 60%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        .email-capture button {
-            padding: 12px 20px;
-            background-color: #2C3E50;
-            color: white;
-            border-radius: 6px;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .email-capture button:hover {
-            background-color: #34495E;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-out;
-        }
     </style>
 </head>
 <body>
-    <header class="fade-in">
+    <header>
         <h1>Zambian Bond Calculator</h1>
         <p>Calculate Your Bond Returns with Ease</p>
-        <img src="https://source.unsplash.com/1200x300/?finance,investment" alt="Finance Banner" style="max-width: 100%; height: auto; border-radius: 10px;">
+        <img src="https://source.unsplash.com/1200x300/?finance,business" alt="Finance Banner">
     </header>
 
     <nav>
@@ -214,108 +159,85 @@
 
     <main>
         <section id="calculator">
-            <div class="section-title">Bond Calculator</div>
-            <div class="section-content">
-                <form id="bondForm">
-                    <label for="principal">Principal Amount (ZMW):</label>
-                    <input type="number" id="principal" required>
+            <h2>Bond Calculator</h2>
+            <form id="bondForm">
+                <label for="principal">Principal Amount (ZMW):</label>
+                <input type="number" id="principal" required>
 
-                    <label for="term">Bond Term (Years):</label>
-                    <select id="term" required>
-                        <option value="2">2 Years (16.5%)</option>
-                        <option value="3">3 Years (20%)</option>
-                        <option value="5">5 Years (20.8%)</option>
-                        <option value="7">7 Years (21.5%)</option>
-                        <option value="10">10 Years (22.5%)</option>
-                        <option value="15">15 Years (23.5%)</option>
-                    </select>
+                <label for="term">Bond Term (Years):</label>
+                <select id="term" required>
+                    <option value="2">2 Years (16.5%)</option>
+                    <option value="3">3 Years (20%)</option>
+                    <option value="5">5 Years (20.8%)</option>
+                    <option value="7">7 Years (21.5%)</option>
+                    <option value="10">10 Years (22.5%)</option>
+                    <option value="15">15 Years (23.5%)</option>
+                </select>
 
-                    <button type="submit">Calculate</button>
-                </form>
-
-                <div id="result"></div>
-            </div>
-        </section>
-
-        <!-- Educational Section -->
-        <section id="education">
-            <div class="section-title">Investing in Zambian Government Bonds</div>
-            <div class="section-content">
-                <ul>
-                    <li>Government bonds offer a safe investment option with fixed returns.</li>
-                    <li>Long-term bonds tend to offer higher rates but may carry more risk.</li>
-                    <li>Bonds are ideal for risk-averse investors looking for steady returns.</li>
-                    <li>Zambian bonds provide a great way to contribute to the country’s economic growth.</li>
-                    <li>Learn more about bond options at the Bank of Zambia and other institutions.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <div class="section-title">What Our Users Say</div>
-            <div class="section-content">
-                <blockquote>
-                    "Using the Zambian Bond Calculator made it so easy to figure out my returns. Highly recommended!" – John M.
-                </blockquote>
-                <blockquote>
-                    "This site is a must-use for anyone interested in investing in Zambian bonds." – Grace K.
-                </blockquote>
-            </div>
-        </section>
-
-        <!-- Email Capture Section -->
-        <section class="email-capture">
-            <h3>Stay Updated on Zambian Bond Market Trends</h3>
-            <p>Sign up for our newsletter to receive the latest information and tools for better investment decisions.</p>
-            <form id="emailForm">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
+                <button type="submit">Calculate</button>
             </form>
+
+            <div id="result"></div>
         </section>
     </main>
 
-    <footer id="contact">
-        <p>Contact us at <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
-        <p>&copy; 2025 Zambian Bond Calculator. All Rights Reserved.</p>
+    <footer>
+        <p>Contact us: <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>&copy; 2025 Zambian Bond Calculator | All Rights Reserved</p>
     </footer>
 
     <script>
-        // Simple form submission simulation for bond calculator
-        document.getElementById("bondForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let principal = document.getElementById("principal").value;
-            let term = document.getElementById("term").value;
-            let rate = 0;
+        document.addEventListener('DOMContentLoaded', function () {
+            const bondForm = document.getElementById('bondForm');
+            const resultDiv = document.getElementById('result');
 
-            // Determine interest rate based on term
-            switch (term) {
-                case "2":
-                    rate = 16.5;
-                    break;
-                case "3":
-                    rate = 20;
-                    break;
-                case "5":
-                    rate = 20.8;
-                    break;
-                case "7":
-                    rate = 21.5;
-                    break;
-                case "10":
-                    rate = 22.5;
-                    break;
-                case "15":
-                    rate = 23.5;
-                    break;
-            }
+            const taxRate = 0.16;
 
-            // Simple future value calculation
-            let futureValue = principal * (1 + rate / 100);
-            document.getElementById("result").innerHTML = `
-                <h3>Estimated Future Value</h3>
-                <p>Your bond's future value after ${term} years will be ZMW ${futureValue.toFixed(2)} at an interest rate of ${rate}%.</p>
-            `;
+            bondForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const principal = parseFloat(document.getElementById('principal').value);
+                const term = parseInt(document.getElementById('term').value);
+                const rateMapping = {
+                    2: 16.5,
+                    3: 20,
+                    5: 20.8,
+                    7: 21.5,
+                    10: 22.5,
+                    15: 23.5,
+                };
+
+                const rate = rateMapping[term];
+
+                if (isNaN(principal) || principal <= 0) {
+                    alert('Please enter a valid principal amount');
+                    return;
+                }
+
+                let totalCoupon = 0;
+                let futureValue = principal;
+                let compoundingDetails = `<h3>Bond Term: ${term} Years</h3><table><tr><th>Year</th><th>Coupon Interest (ZMW)</th><th>Tax (ZMW)</th><th>Accumulated Value (ZMW)</th></tr>`;
+
+                for (let year = 1; year <= term; year++) {
+                    const annualCoupon = principal * (rate / 100) / 2;
+                    const tax = annualCoupon * taxRate;
+                    const netCoupon = annualCoupon - tax;
+                    totalCoupon += netCoupon;
+
+                    futureValue += netCoupon;
+
+                    compoundingDetails += `<tr>
+                        <td>${year}</td>
+                        <td>${annualCoupon.toFixed(2)}</td>
+                        <td>${tax.toFixed(2)}</td>
+                        <td>${futureValue.toFixed(2)}</td>
+                    </tr>`;
+                }
+
+                compoundingDetails += `</table><h3>Total Coupon Earned: ${totalCoupon.toFixed(2)} ZMW</h3><h3>Future Value: ${futureValue.toFixed(2)} ZMW</h3>`;
+
+                resultDiv.innerHTML = compoundingDetails;
+            });
         });
     </script>
 </body>
