@@ -3,65 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bond Calculator</title>
+    <title>Zambian Bond Calculator</title>
 
-    <!-- Embedded CSS -->
+    <!-- Embedded CSS for light blue theme and layout -->
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e0f7fa; /* Light blue background */
         }
 
-        /* Header Styles */
+        /* Header Section */
         header {
-            background-color: #333;
+            background-color: #00796b;
             color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 20px;
+            text-align: center;
         }
 
-        header .logo img {
-            width: 50px; /* Adjust logo size */
+        header h1 {
+            margin: 0;
         }
 
-        header nav ul {
+        header p {
+            font-size: 18px;
+        }
+
+        /* Navigation Bar */
+        nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            display: flex;
+            text-align: center;
         }
 
-        header nav ul li {
-            margin: 0 15px;
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
         }
 
-        header nav ul li a {
+        nav ul li a {
             color: white;
             text-decoration: none;
             font-size: 16px;
         }
 
-        /* Main Section Styles */
+        /* Main Section */
         main {
             padding: 20px;
-        }
-
-        .calculator-form {
+            max-width: 900px;
+            margin: 20px auto;
             background-color: white;
-            padding: 30px;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 0 auto;
         }
 
-        .calculator-form h1 {
+        h2 {
             text-align: center;
-            margin-bottom: 20px;
+            color: #00796b;
         }
 
         .calculator-form label {
@@ -69,7 +69,9 @@
             margin: 10px 0 5px;
         }
 
-        .calculator-form input {
+        .calculator-form input,
+        .calculator-form select,
+        .calculator-form button {
             width: 100%;
             padding: 10px;
             margin: 5px 0 20px;
@@ -78,22 +80,19 @@
         }
 
         .calculator-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
+            background-color: #00796b;
             color: white;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
         }
 
         .calculator-form button:hover {
-            background-color: #555;
+            background-color: #004d40;
         }
 
-        /* Footer Styles */
+        /* Footer Section */
         footer {
-            background-color: #333;
+            background-color: #00796b;
             color: white;
             text-align: center;
             padding: 10px;
@@ -101,72 +100,110 @@
             bottom: 0;
             width: 100%;
         }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header Section with Welcome Introduction -->
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo"> <!-- Replace logo.png with your logo file -->
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Welcome to the Zambian Bond Calculator</h1>
+        <p>Calculate the returns on your Zambian bonds quickly and easily. Input your principal and get the future value in Kwacha!</p>
     </header>
 
-    <!-- Main Section -->
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Section with Bond Calculator Form -->
     <main>
-        <section class="calculator-form">
-            <h1>Bond Calculator</h1>
+        <h2>Bond Investment Calculator</h2>
+        <div class="calculator-form">
             <form id="bondCalculator">
-                <label for="principal">Principal ($):</label>
+                <!-- Principal Input -->
+                <label for="principal">Principal Amount (ZMW):</label>
                 <input type="number" id="principal" name="principal" required>
 
-                <label for="interest">Interest Rate (%):</label>
-                <input type="number" id="interest" name="interest" required>
+                <!-- Bond Duration and Coupon Rate -->
+                <label for="term">Bond Term (Years):</label>
+                <select id="term" name="term" required>
+                    <option value="3">3 Years</option>
+                    <option value="5">5 Years</option>
+                    <option value="7">7 Years</option>
+                    <option value="10">10 Years</option>
+                    <option value="15">15 Years</option>
+                </select>
 
-                <label for="term">Term (Years):</label>
-                <input type="number" id="term" name="term" required>
+                <label for="couponRate">Coupon Rate (%):</label>
+                <select id="couponRate" name="couponRate" required>
+                    <option value="16.5">16.5%</option>
+                    <option value="20">20%</option>
+                    <option value="20.8">20.8%</option>
+                    <option value="22.5">22.5%</option>
+                    <option value="23.5">23.5%</option>
+                </select>
 
+                <!-- Calculate Button -->
                 <button type="submit">Calculate</button>
             </form>
 
-            <div id="result"></div> <!-- Placeholder for result display -->
-        </section>
+            <!-- Display Results -->
+            <div id="result"></div>
+        </div>
     </main>
 
-    <!-- Footer Section -->
+    <!-- Footer Section with Contact Info -->
     <footer>
-        <p>Contact us at <a href="mailto:info@example.com">info@example.com</a></p>
-        <p>&copy; 2025 Bond Calculator. All rights reserved.</p>
+        <p>Contact us at <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
     </footer>
 
-    <!-- Embedded JavaScript -->
+    <!-- Embedded JavaScript for Calculation Logic -->
     <script>
-        // JavaScript to handle bond calculation
         document.getElementById("bondCalculator").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            // Get values from the form
+            // Get form values
             const principal = parseFloat(document.getElementById("principal").value);
-            const interestRate = parseFloat(document.getElementById("interest").value);
             const term = parseInt(document.getElementById("term").value);
+            const couponRate = parseFloat(document.getElementById("couponRate").value);
+            const taxRate = 0.16;  // Tax rate at 16%
 
-            // Calculate the monthly interest rate and number of months
-            const monthlyInterestRate = interestRate / 100 / 12;
-            const numberOfPayments = term * 12;
+            // The future value is set to be equal to the principal (par value)
+            const futureValue = principal;
 
-            // Bond payment calculation formula
-            const monthlyPayment = principal * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+            // Calculate the total interest earned (before tax)
+            const totalInterest = principal * (couponRate / 100) * term;
 
-            // Display result
+            // Calculate tax amount on the total interest earned
+            const taxAmount = totalInterest * taxRate;
+
+            // Calculate the net interest after tax
+            const netInterest = totalInterest - taxAmount;
+
+            // Display the results
             const resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = `<h2>Your Monthly Payment: $${monthlyPayment.toFixed(2)}</h2>`;
+            resultDiv.innerHTML = `
+                <h3>Investment Details</h3>
+                <p><strong>Principal Amount:</strong> ZMW ${principal.toFixed(2)}</p>
+                <p><strong>Bond Term:</strong> ${term} years</p>
+                <p><strong>Coupon Rate:</strong> ${couponRate}%</p>
+                <p><strong>Tax Rate:</strong> 16%</p>
+                <p><strong>Future Value (Par Value):</strong> ZMW ${futureValue.toFixed(2)}</p>
+                <p><strong>Total Interest (Before Tax):</strong> ZMW ${totalInterest.toFixed(2)}</p>
+                <p><strong>Tax Amount:</strong> ZMW ${taxAmount.toFixed(2)}</p>
+                <p><strong>Net Interest (After Tax):</strong> ZMW ${netInterest.toFixed(2)}</p>
+            `;
         });
     </script>
 
