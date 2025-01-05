@@ -3,35 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zambian Bond Calculator - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Zambian Bond Calculator</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #f4f7fc, #cfe2f3);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(90deg, #005B9F, #004080);
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        main {
+            padding: 20px;
+            flex: 1;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form select, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            background: #005B9F;
+            color: white;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #004080;
+        }
+
+        #result {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #e6f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to the Zambian Bond Calculator</h1>
-        <p>Your tool to calculate bond returns in Zambian Kwacha (ZMW)</p>
-        <!-- Placeholder Image -->
-        <img src="https://via.placeholder.com/1200x300.png?text=Finance+Banner" alt="Finance Banner">
+        <h1>Zambian Bond Calculator</h1>
+        <p>Calculate Your Bond Returns with Ease</p>
+        <!-- Image with a working URL -->
+        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200&h=300" alt="Finance Banner">
     </header>
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="calculator.html">Bond Calculator</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <main>
-        <h2>How it Works</h2>
-        <p>This website allows you to calculate the return on bonds purchased at par value, meaning your purchase price is equal to the bond's future value. Enter the principal amount, select the bond term and coupon rate, and get the future value in Kwacha!</p>
-        <p><strong>Use the calculator now:</strong></p>
-        <a href="calculator.html" class="cta-button">Go to Bond Calculator</a>
+        <section id="calculator">
+            <h2>Bond Calculator</h2>
+            <form id="bondForm">
+                <label for="principal">Principal Amount (ZMW):</label>
+                <input type="number" id="principal" required>
+
+                <label for="term">Bond Term (Years):</label>
+                <select id="term" required>
+                    <option value="2">2 Years (16.5%)</option>
+                    <option value="3">3 Years (20%)</option>
+                    <option value="5">5 Years (20.8%)</option>
+                    <option value="7">7 Years (21.5%)</option>
+                    <option value="10">10 Years (22.5%)</option>
+                    <option value="15">15 Years (23.5%)</option>
+                </select>
+
+                <button type="submit">Calculate</button>
+            </form>
+
+            <div id="result"></div>
+        </section>
     </main>
 
     <footer>
-        <p>Contact us at <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>Contact us: <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>&copy; 2025 Zambian Bond Calculator | All Rights Reserved</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const bondForm = document.getElementById('bondForm');
+            const resultDiv = document.getElementById('result');
+
+            bondForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const principal = parseFloat(document.getElementById('principal').value);
+                const term = parseInt(document.getElementById('term').value);
+                const rateMapping = {
+                    2: 16.5,
+                    3: 20,
+                    5: 20.8,
+                    7: 21.5,
+                    10: 22.5,
+                    15: 23.5,
+                };
+                const rate = rateMapping[term];
+
+                if (isNaN(principal) || principal <= 0) {
+                    alert('Please enter a valid principal amount');
+                    return;
+                }
+
+                const futureValue = principal * Math.pow(1 + (rate / 100), term);
+                resultDiv.innerHTML = `<h3>Future Value (ZMW):</h3><p><strong>${futureValue.toFixed(2)} ZMW</strong></p>`;
+            });
+        });
+    </script>
 </body>
 </html>
