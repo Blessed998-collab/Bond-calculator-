@@ -253,4 +253,70 @@
 
         <!-- Testimonials Section -->
         <section id="testimonials">
-            <div class="section-title">What Our Users
+            <div class="section-title">What Our Users Say</div>
+            <div class="section-content">
+                <blockquote>
+                    "Using the Zambian Bond Calculator made it so easy to figure out my returns. Highly recommended!" – John M.
+                </blockquote>
+                <blockquote>
+                    "This site is a must-use for anyone interested in investing in Zambian bonds." – Grace K.
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Email Capture Section -->
+        <section class="email-capture">
+            <h3>Stay Updated on Zambian Bond Market Trends</h3>
+            <p>Sign up for our newsletter to receive the latest information and tools for better investment decisions.</p>
+            <form id="emailForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>Contact us at <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>&copy; 2025 Zambian Bond Calculator. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simple form submission simulation for bond calculator
+        document.getElementById("bondForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let principal = document.getElementById("principal").value;
+            let term = document.getElementById("term").value;
+            let rate = 0;
+
+            // Determine interest rate based on term
+            switch (term) {
+                case "2":
+                    rate = 16.5;
+                    break;
+                case "3":
+                    rate = 20;
+                    break;
+                case "5":
+                    rate = 20.8;
+                    break;
+                case "7":
+                    rate = 21.5;
+                    break;
+                case "10":
+                    rate = 22.5;
+                    break;
+                case "15":
+                    rate = 23.5;
+                    break;
+            }
+
+            // Simple future value calculation
+            let futureValue = principal * (1 + rate / 100);
+            document.getElementById("result").innerHTML = `
+                <h3>Estimated Future Value</h3>
+                <p>Your bond's future value after ${term} years will be ZMW ${futureValue.toFixed(2)} at an interest rate of ${rate}%.</p>
+            `;
+        });
+    </script>
+</body>
+</html>
