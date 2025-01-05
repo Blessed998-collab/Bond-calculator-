@@ -141,13 +141,45 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            form input, form select, form button {
+                width: 100%;
+            }
+
+            footer {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Zambian Bond Calculator</h1>
         <p>Calculate Your Bond Returns with Ease</p>
-        <img src="https://via.placeholder.com/1200x300.png?text=Finance+Image" alt="Finance Banner">
+        <img src="https://source.unsplash.com/1200x300/?finance,business" alt="Finance Banner">
     </header>
 
     <nav>
@@ -180,6 +212,49 @@
             </form>
 
             <div id="result"></div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Learn About Government Bonds</h2>
+            <p>Government bonds are debt securities issued by the government to support government spending and obligations. They are considered low-risk investments. The government guarantees to pay the principal along with interest over the life of the bond.</p>
+            <p>Here's a breakdown of the bond terms available:</p>
+            <ul>
+                <li><strong>2 Year Bond</strong>: 16.5% annual interest</li>
+                <li><strong>3 Year Bond</strong>: 20% annual interest</li>
+                <li><strong>5 Year Bond</strong>: 20.8% annual interest</li>
+                <li><strong>7 Year Bond</strong>: 21.5% annual interest</li>
+                <li><strong>10 Year Bond</strong>: 22.5% annual interest</li>
+                <li><strong>15 Year Bond</strong>: 23.5% annual interest</li>
+            </ul>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2>What Our Users Are Saying</h2>
+            <div class="testimonial">
+                <p>"This bond calculator is incredibly useful! It helped me calculate my returns and plan my investment strategy." - John M.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Easy to use and provides great insights on Zambian bonds. Highly recommend it!" - Sarah T.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="mailto:tblessed998@gmail.com" method="POST" enctype="text/plain">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
 
