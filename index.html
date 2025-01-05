@@ -8,6 +8,7 @@
     <meta name="author" content="Zambian Bond Calculator">
     <title>Zambian Bond Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         * {
@@ -17,7 +18,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background: linear-gradient(180deg, #f4f7fc, #cfe2f3);
             color: #333;
             line-height: 1.6;
@@ -122,6 +123,35 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .testimonial-section, .education-section {
+            padding: 50px 0;
+            background-color: #f0f8ff;
+        }
+
+        .testimonial-section h2, .education-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .testimonials, .education-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -178,6 +208,36 @@
             </form>
 
             <div id="result"></div>
+        </section>
+
+        <section id="education" class="education-section">
+            <h2>Bond Investment Education</h2>
+            <div class="education-content">
+                <p><strong>What is a Bond?</strong></p>
+                <p>A bond is a type of debt security in which the issuer owes the holders a debt and is obliged to pay interest (the coupon) and/or to repay the principal at a later date, termed the maturity date.</p>
+                <p><strong>How Do Bonds Work?</strong></p>
+                <p>When you purchase a bond, you are essentially lending money to the issuer. In return, you receive regular interest payments (called coupons) and your principal is repaid at maturity. In the case of government bonds, these payments are typically guaranteed by the government.</p>
+                <p><strong>Why Invest in Bonds?</strong></p>
+                <p>Bonds provide a relatively safe investment with fixed returns. They can help diversify your investment portfolio and reduce overall risk. Additionally, Zambian government bonds are a good way to earn interest while contributing to national development.</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonial-section">
+            <h2>What Our Users Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"This bond calculator has been incredibly helpful in understanding my potential returns. The detailed breakdown of coupon interest and tax deductions helped me make a more informed decision. Highly recommend!"</p>
+                    <p>- Samuel M., Lusaka</p>
+                </div>
+                <div class="testimonial">
+                    <p>"As a first-time investor, I found the educational section to be very insightful. The calculator is easy to use, and the results are clear. This tool helped me choose the right bond for my financial goals."</p>
+                    <p>- Jennifer L., Kitwe</p>
+                </div>
+                <div class="testimonial">
+                    <p>"The Zambian Bond Calculator made it so easy to calculate my bond returns and see how tax affects my earnings. I can now confidently manage my investments."</p>
+                    <p>- Eric K., Ndola</p>
+                </div>
+            </div>
         </section>
     </main>
 
