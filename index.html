@@ -3,106 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zambian Bond Calculator</title>
-
-    <!-- Embedded CSS for light blue theme and layout -->
+    <title>Empowering Financial Future</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #e0f7fa; /* Light blue background */
+            box-sizing: border-box;
         }
 
-        /* Header Section */
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
         header {
-            background-color: #00796b;
-            color: white;
-            padding: 20px;
             text-align: center;
+            background-color: #005B9F;
+            color: #fff;
+            padding: 20px 0;
         }
 
         header h1 {
-            margin: 0;
+            font-size: 2.5em;
         }
 
         header p {
-            font-size: 18px;
+            font-size: 1.2em;
         }
 
-        /* Navigation Bar */
+        /* Navigation */
+        nav {
+            background-color: #333;
+        }
+
         nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 10px 0;
         }
 
         nav ul li {
-            display: inline;
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 1.1em;
         }
 
-        /* Main Section */
+        nav ul li a:hover {
+            color: #005B9F;
+        }
+
+        /* Main content */
         main {
             padding: 20px;
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 20px;
         }
 
         h2 {
-            text-align: center;
-            color: #00796b;
+            font-size: 1.8em;
+            margin-bottom: 10px;
         }
 
-        .calculator-form label {
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
             display: block;
             margin: 10px 0 5px;
         }
 
-        .calculator-form input,
-        .calculator-form select,
-        .calculator-form button {
+        form input, form select, form button {
             width: 100%;
             padding: 10px;
-            margin: 5px 0 20px;
+            margin: 8px 0;
+            border-radius: 5px;
             border: 1px solid #ccc;
-            border-radius: 4px;
         }
 
-        .calculator-form button {
-            background-color: #00796b;
-            color: white;
+        form button {
+            background-color: #005B9F;
+            color: #fff;
             border: none;
-            cursor: pointer;
         }
 
-        .calculator-form button:hover {
-            background-color: #004d40;
+        form button:hover {
+            background-color: #004C87;
         }
 
-        /* Footer Section */
+        /* Footer */
         footer {
-            background-color: #00796b;
-            color: white;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
         }
 
         footer a {
-            color: white;
+            color: #ffd700;
             text-decoration: none;
         }
 
@@ -112,32 +127,29 @@
     </style>
 </head>
 <body>
-
-    <!-- Header Section with Welcome Introduction -->
     <header>
-        <h1>Welcome to the Zambian Bond Calculator</h1>
-        <p>Calculate the returns on your Zambian bonds quickly and easily. Input your principal and get the future value in Kwacha!</p>
+        <h1>Welcome to Empowering Financial Future</h1>
+        <p>Your guide to interactive financial tools and expert resources.</p>
     </header>
 
-    <!-- Navigation Bar -->
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Main Section with Bond Calculator Form -->
     <main>
-        <h2>Bond Investment Calculator</h2>
-        <div class="calculator-form">
-            <form id="bondCalculator">
-                <!-- Principal Input -->
+        <section id="tools">
+            <h2>Zambian Bond Calculator</h2>
+            <form id="bondForm">
                 <label for="principal">Principal Amount (ZMW):</label>
-                <input type="number" id="principal" name="principal" required>
+                <input type="number" id="principal" required>
 
-                <!-- Bond Duration and Coupon Rate -->
                 <label for="term">Bond Term (Years):</label>
-                <select id="term" name="term" required>
+                <select id="term" required>
                     <option value="3">3 Years</option>
                     <option value="5">5 Years</option>
                     <option value="7">7 Years</option>
@@ -145,8 +157,8 @@
                     <option value="15">15 Years</option>
                 </select>
 
-                <label for="couponRate">Coupon Rate (%):</label>
-                <select id="couponRate" name="couponRate" required>
+                <label for="rate">Coupon Rate (%):</label>
+                <select id="rate" required>
                     <option value="16.5">16.5%</option>
                     <option value="20">20%</option>
                     <option value="20.8">20.8%</option>
@@ -154,58 +166,47 @@
                     <option value="23.5">23.5%</option>
                 </select>
 
-                <!-- Calculate Button -->
                 <button type="submit">Calculate</button>
             </form>
 
-            <!-- Display Results -->
             <div id="result"></div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer Section with Contact Info -->
     <footer>
-        <p>Contact us at <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>Contact us: <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>&copy; 2025 Empowering Financial Future | All Rights Reserved</p>
     </footer>
 
-    <!-- Embedded JavaScript for Calculation Logic -->
     <script>
-        document.getElementById("bondCalculator").addEventListener("submit", function(event) {
-            event.preventDefault();
+        document.addEventListener('DOMContentLoaded', function () {
+            const bondForm = document.getElementById('bondForm');
+            const resultDiv = document.getElementById('result');
 
-            // Get form values
-            const principal = parseFloat(document.getElementById("principal").value);
-            const term = parseInt(document.getElementById("term").value);
-            const couponRate = parseFloat(document.getElementById("couponRate").value);
-            const taxRate = 0.16;  // Tax rate at 16%
+            bondForm.addEventListener('submit', function (event) {
+                event.preventDefault();
 
-            // The future value is set to be equal to the principal (par value)
-            const futureValue = principal;
+                const principal = parseFloat(document.getElementById('principal').value);
+                const term = parseInt(document.getElementById('term').value);
+                const rate = parseFloat(document.getElementById('rate').value);
 
-            // Calculate the total interest earned (before tax)
-            const totalInterest = principal * (couponRate / 100) * term;
+                if (isNaN(principal) || principal <= 0) {
+                    alert('Please enter a valid principal amount');
+                    return;
+                }
+                if (isNaN(term) || term <= 0) {
+                    alert('Please select a valid bond term');
+                    return;
+                }
+                if (isNaN(rate) || rate <= 0) {
+                    alert('Please select a valid coupon rate');
+                    return;
+                }
 
-            // Calculate tax amount on the total interest earned
-            const taxAmount = totalInterest * taxRate;
-
-            // Calculate the net interest after tax
-            const netInterest = totalInterest - taxAmount;
-
-            // Display the results
-            const resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = `
-                <h3>Investment Details</h3>
-                <p><strong>Principal Amount:</strong> ZMW ${principal.toFixed(2)}</p>
-                <p><strong>Bond Term:</strong> ${term} years</p>
-                <p><strong>Coupon Rate:</strong> ${couponRate}%</p>
-                <p><strong>Tax Rate:</strong> 16%</p>
-                <p><strong>Future Value (Par Value):</strong> ZMW ${futureValue.toFixed(2)}</p>
-                <p><strong>Total Interest (Before Tax):</strong> ZMW ${totalInterest.toFixed(2)}</p>
-                <p><strong>Tax Amount:</strong> ZMW ${taxAmount.toFixed(2)}</p>
-                <p><strong>Net Interest (After Tax):</strong> ZMW ${netInterest.toFixed(2)}</p>
-            `;
+                const futureValue = principal * Math.pow(1 + (rate / 100), term);
+                resultDiv.innerHTML = `<h3>Future Value (ZMW):</h3><p><strong>${futureValue.toFixed(2)} ZMW</strong></p>`;
+            });
         });
     </script>
-
 </body>
 </html>
