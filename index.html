@@ -160,20 +160,12 @@
 
                 <label for="term">Bond Term (Years):</label>
                 <select id="term" required>
-                    <option value="3">3 Years</option>
-                    <option value="5">5 Years</option>
-                    <option value="7">7 Years</option>
-                    <option value="10">10 Years</option>
-                    <option value="15">15 Years</option>
-                </select>
-
-                <label for="rate">Coupon Rate (%):</label>
-                <select id="rate" required>
-                    <option value="16.5">16.5%</option>
-                    <option value="20">20%</option>
-                    <option value="20.8">20.8%</option>
-                    <option value="22.5">22.5%</option>
-                    <option value="23.5">23.5%</option>
+                    <option value="2">2 Years (16.5%)</option>
+                    <option value="3">3 Years (20%)</option>
+                    <option value="5">5 Years (20.8%)</option>
+                    <option value="7">7 Years (21.5%)</option>
+                    <option value="10">10 Years (22.5%)</option>
+                    <option value="15">15 Years (23.5%)</option>
                 </select>
 
                 <button type="submit">Calculate</button>
@@ -198,7 +190,15 @@
 
                 const principal = parseFloat(document.getElementById('principal').value);
                 const term = parseInt(document.getElementById('term').value);
-                const rate = parseFloat(document.getElementById('rate').value);
+                const rateMapping = {
+                    2: 16.5,
+                    3: 20,
+                    5: 20.8,
+                    7: 21.5,
+                    10: 22.5,
+                    15: 23.5,
+                };
+                const rate = rateMapping[term];
 
                 if (isNaN(principal) || principal <= 0) {
                     alert('Please enter a valid principal amount');
