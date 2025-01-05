@@ -299,4 +299,72 @@
                 <li>Zambian bonds provide a great way to contribute to the country’s economic growth.</li>
                 <li>Learn more about bond options at the Bank of Zambia and other institutions.</li>
             </ul>
-        </section
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <h3>What Our Users Say</h3>
+            <div class="testimonial">
+                <h4>John M.</h4>
+                <p>"The Zambian Bond Calculator is a lifesaver! It helped me plan my investments and I was able to accurately predict my bond returns. Highly recommended!"</p>
+            </div>
+            <div class="testimonial">
+                <h4>Amanda Z.</h4>
+                <p>"I’m new to bonds, and this tool helped me understand how they work and how to calculate returns easily. Great resource!"</p>
+            </div>
+        </section>
+
+        <!-- Email Capture Section -->
+        <section class="email-capture">
+            <h2>Stay Updated with Bond Insights!</h2>
+            <p>Enter your email to get the latest bond news and investment tips:</p>
+            <input type="email" placeholder="Enter your email" id="email">
+            <button onclick="submitEmail()">Subscribe</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Contact us: <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>&copy; 2025 Zambian Bond Calculator | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const bondForm = document.getElementById('bondForm');
+            const resultDiv = document.getElementById('result');
+
+            bondForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const principal = parseFloat(document.getElementById('principal').value);
+                const term = parseInt(document.getElementById('term').value);
+                const rateMapping = {
+                    2: 16.5,
+                    3: 20,
+                    5: 20.8,
+                    7: 21.5,
+                    10: 22.5,
+                    15: 23.5,
+                };
+                const rate = rateMapping[term];
+
+                if (isNaN(principal) || principal <= 0) {
+                    alert('Please enter a valid principal amount');
+                    return;
+                }
+
+                const futureValue = principal * Math.pow(1 + (rate / 100), term);
+                resultDiv.innerHTML = `<h3>Future Value (ZMW):</h3><p><strong>${futureValue.toFixed(2)} ZMW</strong></p>`;
+            });
+        });
+
+        function submitEmail() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert(`Thanks for subscribing! We will send updates to ${email}`);
+            }
+        }
+    </script>
+</body>
+</html>
