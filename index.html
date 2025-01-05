@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zambian Bond Calculator - Calculate Your Bond Returns with Ease">
+    <meta name="keywords" content="Zambian bonds, bond calculator, finance, investment, government bonds, ZMW, bond returns">
+    <meta name="author" content="Zambian Bond Calculator">
     <title>Zambian Bond Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ANALYTICS_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GOOGLE_ANALYTICS_ID');
+    </script>
     <style>
         /* Global Styles */
         * {
@@ -35,13 +46,6 @@
 
         header p {
             font-size: 1.2em;
-        }
-
-        header img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: cover;
         }
 
         nav {
@@ -142,41 +146,64 @@
             text-decoration: underline;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffd700;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
 
-            header p {
-                font-size: 1em;
-            }
+        .cta-button:hover {
+            background-color: #005B9F;
+            color: white;
+        }
 
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
+        .email-capture {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-            nav ul li {
-                margin: 10px 0;
-            }
+        .email-capture input {
+            width: 60%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-            main {
-                padding: 15px;
-            }
+        .email-capture button {
+            padding: 10px 20px;
+            background-color: #005B9F;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
 
-            form input, form select, form button {
-                width: 100%;
-            }
+        .email-capture button:hover {
+            background-color: #004080;
+        }
 
-            footer {
-                padding: 20px;
-            }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="fade-in">
         <h1>Zambian Bond Calculator</h1>
         <p>Calculate Your Bond Returns with Ease</p>
         <img src="https://source.unsplash.com/1200x300/?finance,business" alt="Finance Banner">
@@ -214,48 +241,14 @@
             <div id="result"></div>
         </section>
 
-        <!-- Education Section -->
-        <section id="education">
-            <h2>Learn About Government Bonds</h2>
-            <p>Government bonds are debt securities issued by the government to support government spending and obligations. They are considered low-risk investments. The government guarantees to pay the principal along with interest over the life of the bond.</p>
-            <p>Here's a breakdown of the bond terms available:</p>
-            <ul>
-                <li><strong>2 Year Bond</strong>: 16.5% annual interest</li>
-                <li><strong>3 Year Bond</strong>: 20% annual interest</li>
-                <li><strong>5 Year Bond</strong>: 20.8% annual interest</li>
-                <li><strong>7 Year Bond</strong>: 21.5% annual interest</li>
-                <li><strong>10 Year Bond</strong>: 22.5% annual interest</li>
-                <li><strong>15 Year Bond</strong>: 23.5% annual interest</li>
-            </ul>
+        <!-- Email Capture Section -->
+        <section class="email-capture">
+            <h2>Stay Updated with Bond Insights!</h2>
+            <p>Enter your email to get the latest bond news and investment tips:</p>
+            <input type="email" placeholder="Enter your email" id="email">
+            <button onclick="submitEmail()">Subscribe</button>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2>What Our Users Are Saying</h2>
-            <div class="testimonial">
-                <p>"This bond calculator is incredibly useful! It helped me calculate my returns and plan my investment strategy." - John M.</p>
-            </div>
-            <div class="testimonial">
-                <p>"Easy to use and provides great insights on Zambian bonds. Highly recommend it!" - Sarah T.</p>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form action="mailto:tblessed998@gmail.com" method="POST" enctype="text/plain">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
     </main>
 
     <footer>
@@ -292,6 +285,13 @@
                 resultDiv.innerHTML = `<h3>Future Value (ZMW):</h3><p><strong>${futureValue.toFixed(2)} ZMW</strong></p>`;
             });
         });
+
+        function submitEmail() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert(`Thanks for subscribing! We will send updates to ${email}`);
+            }
+        }
     </script>
 </body>
 </html>
