@@ -401,7 +401,17 @@
                 }
 
                 tableContent += `</table>`;
-                resultDiv.innerHTML = `<h3>Bond Calculation Results (ZMW):</h3>` + tableContent;
+
+                // Show the tax, principal, and future value (equal)
+                let futureValue = principal; // Since future value is equal to principal
+                let tax = principal * taxRate; // Tax calculation
+                resultDiv.innerHTML = `
+                    <h3>Bond Calculation Results (ZMW):</h3>
+                    <p><strong>Principal (ZMW):</strong> ${principal.toFixed(2)}</p>
+                    <p><strong>Tax Deduction (ZMW):</strong> ${tax.toFixed(2)}</p>
+                    <p><strong>Future Value (ZMW):</strong> ${futureValue.toFixed(2)}</p>
+                    ${tableContent}
+                `;
             });
         });
     </script>
