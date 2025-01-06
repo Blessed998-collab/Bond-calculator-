@@ -208,6 +208,31 @@
             animation: fadeIn 1s ease-out;
         }
 
+        /* Calculation Table Styles */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #005B9F;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
         .testimonials {
             background-color: #fff;
             padding: 40px;
@@ -260,7 +285,6 @@
     <header class="fade-in">
         <h1>Zambian Bond Calculator</h1>
         <p>Calculate Your Bond Returns with Ease</p>
-        <!-- Replace this image source with your calculator logo URL -->
         <img src="path/to/your/calculator-logo.png" alt="Calculator Logo">
     </header>
 
@@ -324,17 +348,15 @@
 
         <!-- Email Capture Section -->
         <section class="email-capture">
-            <h2>Stay Updated with Bond Insights!</h2>
-            <p>Enter your email to get the latest bond news and investment tips:</p>
-            <input type="email" placeholder="Enter your email" id="email">
-            <button onclick="submitEmail()">Subscribe</button>
+            <h3>Stay Updated with Latest Bond Rates</h3>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
         </section>
-
     </main>
 
     <footer>
-        <p>Contact us: <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
-        <p>&copy; 2025 Zambian Bond Calculator | All Rights Reserved</p>
+        <p>Contact Us: <a href="mailto:tblessed998@gmail.com">tblessed998@gmail.com</a></p>
+        <p>&copy; 2025 Zambian Bond Calculator. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -356,24 +378,32 @@
                     15: 23.5,
                 };
                 const rate = rateMapping[term];
+                const taxRate = 0.16; // Tax rate
 
                 if (isNaN(principal) || principal <= 0) {
                     alert('Please enter a valid principal amount');
                     return;
                 }
 
-                const futureValue = principal * Math.pow(1 + (rate / 100), term);
-                resultDiv.innerHTML = `<h3>Future Value (ZMW):</h3><p><strong>${futureValue.toFixed(2)} ZMW</strong></p>`;
+                let couponInterest = (principal * (rate / 100)) / 2; // Semi-annual coupon interest
+                let netCouponInterest = couponInterest * (1 - taxRate); // Net after tax deduction
+                let cumulativeNetInterest = 0;
+                let tableContent = `<table><tr><th>Year</th><th>Coupon Interest (ZMW)</th><th>Net Coupon Interest (ZMW)</th><th>Cumulative Net Coupon Interest (ZMW)</th></tr>`;
+
+                for (let year = 1; year <= term; year++) {
+                    cumulativeNetInterest += netCouponInterest; // Add net coupon interest each year
+                    tableContent += `<tr>
+                        <td>${year}</td>
+                        <td>${couponInterest.toFixed(2)}</td>
+                        <td>${netCouponInterest.toFixed(2)}</td>
+                        <td>${cumulativeNetInterest.toFixed(2)}</td>
+                    </tr>`;
+                }
+
+                tableContent += `</table>`;
+                resultDiv.innerHTML = `<h3>Bond Calculation Results (ZMW):</h3>` + tableContent;
             });
         });
-
-        function submitEmail() {
-            const email = document.getElementById('email').value;
-            if (email) {
-                alert(`Thanks for subscribing! We will send updates to ${email}`);
-            }
-        }
     </script>
 </body>
 </html>
-
